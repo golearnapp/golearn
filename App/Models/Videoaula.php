@@ -43,4 +43,20 @@ class Videoaula extends Model
 
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
+
+    public function getAllVideos() {
+        $query = "SELECT id, titulo FROM videos";
+        return $this->db->query($query)->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function exists($id)
+{
+    $query = "SELECT COUNT(*) FROM {$this->table} WHERE id = :id";
+    $stmt = $this->db->prepare($query);
+    $stmt->bindValue(':id', $id);
+    $stmt->execute();
+
+    return $stmt->fetchColumn() > 0;
+}
+    
 }

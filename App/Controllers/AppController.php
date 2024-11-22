@@ -62,15 +62,24 @@ class AppController extends Action {
 			header('Location: /login?login=erro');
 		}
 	}
-	public function uplod() {
+	public function upload() {
 		session_start();
 		
 
 		if($_SESSION['id'] != '' && $_SESSION['nome'] != '') {
-			$this->render('uplod', 'layout2');
+			$this->render('upload', 'layout2');
 		} else {
 			header('Location: /login?login=erro');
 		}
+
+		$playlistModel = Container::getModel('Playlist');
+		$videoModel = Container::getModel('Video');
+
+		// Atribui as playlists e vídeos ao objeto view
+		$this->view->playlists = $playlistModel->getAllPlaylists();
+		$this->view->videos = $videoModel->getAllVideos();
+
+		
 	}
 
 	public function listar_playlists() {
@@ -79,6 +88,17 @@ class AppController extends Action {
 
 		if($_SESSION['id'] != '' && $_SESSION['nome'] != '') {
 			$this->render('listar', 'layout2');
+		} else {
+			header('Location: /login?login=erro');
+		}
+	}
+
+	public function listas_arquivo() {
+		session_start();
+		
+
+		if($_SESSION['id'] != '' && $_SESSION['nome'] != '') {
+			$this->render('listas_arquivo', 'layout2');
 		} else {
 			header('Location: /login?login=erro');
 		}

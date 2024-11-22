@@ -59,7 +59,7 @@ class VideoaulaController extends Action {
         }
 
         // Redirecione para a página de upload
-    header('Location: /uplod');
+    header('Location: /upload');
     exit;
     }
 

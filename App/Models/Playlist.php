@@ -71,4 +71,20 @@ class Playlist extends Model
 
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
+
+    public function getAllPlaylists() {
+        $query = "SELECT id, nome FROM playlists";
+        return $this->db->query($query)->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function exists($id)
+{
+    $query = "SELECT COUNT(*) FROM {$this->table} WHERE id = :id";
+    $stmt = $this->db->prepare($query);
+    $stmt->bindValue(':id', $id);
+    $stmt->execute();
+
+    return $stmt->fetchColumn() > 0;
+}
+    
 }

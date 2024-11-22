@@ -35,7 +35,7 @@ class PlaylistController extends Action
             $id_playlist = $playlist->criarPlaylist();
 
             $_SESSION['mensagem'] = 'Playlist criada com sucesso!';
-            header("Location: /playlist/{$id_playlist}");
+            header("Location: /upload");
             exit;
         } else {
             $_SESSION['mensagem'] = 'Título é obrigatório.';
@@ -81,17 +81,27 @@ class PlaylistController extends Action
 
         if ($id_playlist && $id_video) {
             $playlist = Container::getModel('Playlist');
-            $playlist->adicionarVideo($id_playlist, $id_video);
+            $videoModel = Container::getModel('Video');
 
-            $_SESSION['mensagem'] = 'Vídeo adicionado à playlist com sucesso!';
-            header("Location: /playlist/{$id_playlist}");
-            exit;
+            // Verifica se a playlist e o vídeo existem
+            if ($playlist->exists($id_playlist) && $videoModel->exists($id_video)) {
+                $playlist->adicionarVideo($id_playlist, $id_video);
+
+                $_SESSION['mensagem'] = 'Vídeo adicionado à playlist com sucesso!';
+                header("Location: /playlist/{$id_playlist}");
+                exit;
+            } else {
+                $_SESSION['mensagem'] = 'Playlist ou vídeo não encontrado.';
+                header("Location: /playlist/{$id_playlist}");
+                exit;
+            }
         } else {
             $_SESSION['mensagem'] = 'Dados inválidos para adicionar vídeo.';
-            header("Location: /playlist/{$id_playlist}");
+            header("Location: /playlist");
             exit;
         }
     }
+
 
     // Lista todas as playlists para o usuário comum
     public function listar()
@@ -105,4 +115,15 @@ class PlaylistController extends Action
         $this->view->playlists = $playlists;
         $this->render('listar_playlists', 'layout2');
     }
+
+    public function formAdicionarVideo() {
+        $playlistModel = Container::getModel('Playlist');
+        $videoModel = Container::getModel('Video');
+    
+        $this->view->playlists = $playlistModel->getAllPlaylists();
+        $this->view->videos = $videoModel->getAllVideos();
+    
+        $this->render('form_adicionar_video'); // Renderiza a view
+    }
+    
 }

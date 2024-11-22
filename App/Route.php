@@ -92,10 +92,16 @@ class Route extends Bootstrap {
 			'action' => 'videoaula'
 		);
 
-		$routes['uplod'] = array(
-			'route' => '/uplod',
+		$routes['upload'] = array(
+			'route' => '/upload',
 			'controller' => 'AppController',
-			'action' => 'uplod'
+			'action' => 'upload'
+		);
+
+		$routes['listas_arquivo'] = array(
+			'route' => '/listas_arquivo',
+			'controller' => 'AppController',
+			'action' => 'listas_arquivo'
 		);
 
 		// Rotas de Administração
@@ -160,6 +166,12 @@ class Route extends Bootstrap {
             'controller' => 'VideoaulaController',
             'action' => 'listar'
         ];
+
+		$routes['arquivo_salvar'] = [
+			'route' => '/arquivo/salvar',
+			'controller' => 'ArquivoController',
+            'action' => 'postararquivo'
+		];
 
 		$this->setRoutes($routes);
 	}
