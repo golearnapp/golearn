@@ -1,12 +1,13 @@
 {
-	"name": "miniframework",
+	"name": "Golearn",
 	"require": {
 		"php": ">= 7.0"
 	},
 	"authors": [
 		{
-			"name": "Jorge Sant Ana",
-			"email": "jorge@teste.com.br"
+			"name": "Junio de Matos, Amanda Frolini, Jorge Bernardi, Vitor Bressan, Felipe Regiani, Leonardo Cherri",
+			"email": "junio237@hotmail.com"
+						
 		}
 	],
 	"autoload": {

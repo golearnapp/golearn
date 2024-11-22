@@ -8,6 +8,7 @@ class Route extends Bootstrap {
 
 	protected function initRoutes() {
 
+		// Rotas de Páginas
 		$routes['home'] = array(
 			'route' => '/',
         	'controller' => 'indexController',
@@ -48,17 +49,11 @@ class Route extends Bootstrap {
 			'controller' => 'indexController',
 			'action' => 'password'
 		);
-
+		// Rotas de Autenticação
 		$routes['autenticar'] = array(
 			'route' => '/autenticar',
 			'controller' => 'AuthController',
 			'action' => 'autenticar'
-		);
-
-		$routes['timeline'] = array(
-			'route' => '/timeline',
-			'controller' => 'AppController',
-			'action' => 'timeline'
 		);
 
 		$routes['sair'] = array(
@@ -66,6 +61,105 @@ class Route extends Bootstrap {
 			'controller' => 'AuthController',
 			'action' => 'sair'
 		);
+		// Rotas de Aplicação
+		$routes['apphome'] = array(
+			'route' => '/apphome',
+			'controller' => 'AppController',
+			'action' => 'apphome'
+		);	
+
+		$routes['book'] = array(
+			'route' => '/book',
+			'controller' => 'AppController',
+			'action' => 'book'
+		);
+
+		$routes['perfil'] = array(
+			'route' => '/perfil',
+			'controller' => 'AppController',
+			'action' => 'perfil'
+		);
+
+		$routes['calendario'] = array(
+			'route' => '/calendario',
+			'controller' => 'AppController',
+			'action' => 'calendario'
+		);
+
+		$routes['videoaula'] = array(
+			'route' => '/videoaula',
+			'controller' => 'AppController',
+			'action' => 'videoaula'
+		);
+
+		$routes['uplod'] = array(
+			'route' => '/uplod',
+			'controller' => 'AppController',
+			'action' => 'uplod'
+		);
+
+		// Rotas de Administração
+		$routes['admin'] = array(
+			'route' => '/admin',
+			'controller' => 'AdminController',
+			'action' => 'admin'
+		);
+		
+		$routes['alterar_nivel'] = [
+			'route' => '/admin/alterar_nivel',
+			'controller' => 'AdminController',
+			'action' => 'alterarNivelAcesso'
+		];
+
+		// Rotas de Playlist
+        $routes['criar_playlist'] = [
+            'route' => '/playlist/criar',
+            'controller' => 'PlaylistController',
+            'action' => 'criar'
+        ];
+
+        $routes['salvar_playlist'] = [
+            'route' => '/playlist/salvar',
+            'controller' => 'PlaylistController',
+            'action' => 'salvar'
+        ];
+
+        $routes['visualizar_playlist'] = [
+            'route' => '/playlist/visualizar',
+            'controller' => 'PlaylistController',
+            'action' => 'visualizar'
+        ];
+
+        $routes['adicionar_video_playlist'] = [
+            'route' => '/playlist/adicionar-video',
+            'controller' => 'PlaylistController',
+            'action' => 'adicionarVideo'
+        ];
+
+        $routes['listar_playlists'] = [
+            'route' => '/playlists',
+            'controller' => 'PlaylistController',
+            'action' => 'listar'
+        ];
+
+		// Rotas de Videoaula
+        $routes['videoaula_upload'] = [
+            'route' => '/videoaula/upload',
+            'controller' => 'VideoaulaController',
+            'action' => 'upload'
+        ];
+
+        $routes['videoaula_salvar'] = [
+            'route' => '/videoaula/salvar',
+            'controller' => 'VideoaulaController',
+            'action' => 'salvar'
+        ];
+
+        $routes['videoaula_listar'] = [
+            'route' => '/videoaula/listar',
+            'controller' => 'VideoaulaController',
+            'action' => 'listar'
+        ];
 
 		$this->setRoutes($routes);
 	}

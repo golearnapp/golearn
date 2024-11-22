@@ -1,0 +1,24 @@
+<h1>Arquivos Disponíveis</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Nome do Arquivo</th>
+            <th>Enviado Por</th>
+            <th>Data de Envio</th>
+            <th>Ação</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($arquivos as $arquivo): ?>
+            <tr>
+                <td><?= $arquivo['nome_arquivo'] ?></td>
+                <td><?= $arquivo['enviado_por'] ?></td>
+                <td><?= $arquivo['enviado_em'] ?></td>
+                <td>
+                    <a href="/<?= $arquivo['caminho_arquivo'] ?>" download>Baixar</a>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
+criar view formulario para upload de arquivos

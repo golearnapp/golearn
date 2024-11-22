@@ -1,0 +1,29 @@
+<h1>Adicionar Vídeo à Playlist: <?= htmlspecialchars($this->view->playlist->titulo) ?></h1>
+
+    <!-- Mensagem de feedback -->
+    <?php if (isset($_SESSION['mensagem'])): ?>
+        <div class="alert">
+            <?= htmlspecialchars($_SESSION['mensagem']); ?>
+            <?php unset($_SESSION['mensagem']); ?>
+        </div>
+    <?php endif; ?>
+
+    <!-- Formulário para adicionar um vídeo -->
+    <form action="/playlist/adicionar_video" method="POST">
+        <input type="hidden" name="id_playlist" value="<?= htmlspecialchars($this->view->playlist->id) ?>">
+
+        <label for="id_video">Selecione um vídeo:</label><br>
+        <select name="id_video" id="id_video" required>
+            <option value="">Escolha um vídeo</option>
+            <?php foreach ($this->view->videos as $video): ?>
+                <option value="<?= htmlspecialchars($video['id']) ?>">
+                    <?= htmlspecialchars($video['titulo']) ?>
+                </option>
+            <?php endforeach; ?>
+        </select>
+        <br><br>
+
+        <button type="submit">Adicionar Vídeo</button>
+    </form>
+
+    <a href="/playlist/<?= htmlspecialchars($this->view->playlist->id) ?>">Voltar para a Playlist</a>

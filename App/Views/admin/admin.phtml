@@ -1,0 +1,38 @@
+
+    <h1>Gerenciar Usuários</h1>
+    <a href="/sair">Sair</a>
+    <table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Telefone</th>
+            <th>Nível de Acesso</th>
+        </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($this->view->usuarios as $usuario): ?>
+                <tr>
+                    <td><?= $usuario['id'] ?></td>
+                    <td><?= $usuario['nome'] ?></td>
+                    <td><?= $usuario['email'] ?></td>
+                    <td><?= $usuario['telefone'] ?></td>
+                    <td><?= $usuario['nivel_acesso'] ?></td>
+                    <td>
+                        <form action="/admin/alterar_nivel" method="POST">
+                            <input type="hidden" name="id_usuario" value="<?= $usuario['id'] ?>">
+                            <select name="nivel_acesso">
+                                <option value="1" <?= $usuario['nivel_acesso'] == 1 ? 'selected' : '' ?>>Administrador</option>
+                                <option value="2" <?= $usuario['nivel_acesso'] == 2 ? 'selected' : '' ?>>Gestor</option>
+                                <option value="3" <?= $usuario['nivel_acesso'] == 3 ? 'selected' : '' ?>>Usuario</option>
+                            </select>
+                            <button type="submit">Alterar</button>
+                        </form>
+                    </td>
+                </tr>
+                <?php endforeach; ?>
+        </tbody>
+    </table>
+</table>
+

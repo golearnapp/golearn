@@ -1,24 +1,287 @@
-.conteiner-box{
-    width: calc(100vh - 350px);
-    height: 100vh;
-    border: 2px solid;
-    border-radius: 10px;
-    margin: 10px;
-    
-    
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
-.conteiner-main{
-    width: 910px;
-    height: 100vh;
+  
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--secondary-light);
+    color: var(--white);
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    height: 60px;
+   
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    height: 200px;
+    width: 200px;    
+    margin-right: 65%;
+    margin-bottom: 20px;
+  }
+
+  
+  .menu-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 24px;
+    width: 30px;
+  }
+  
+  .menu-button .line {
+    background-color: rgb(167, 160, 160);
+    height: 4px;
+    width: 100%;
+    border-radius: 2px;
+    transition: transform 0.3s, opacity 0.3s;
+  }
+
+  .button{
+    display: flex;
+    align-items: center;
+  }
+
+  .serarch-button{
+    margin-right: 0.8rem;
+    font-size: 1.1rem;
+    width: 2.3rem;
+    height: 2.3rem;
+    background-color: var(--secondary);
+    color: var(--white);
+    line-height: 2.3rem;
+    text-align: center;
+    margin-right: 1rem;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+  }
+
+  .profile-dropdown {
+    position: relative;
+    width: fit-content;
+    margin-left: 50px;
+    
+  }
+  
+  .profile-dropdown-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 1rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    width: 150px;
+    border-radius: 50px;
+    color: var(--black);
+    /* background-color: white;
+    box-shadow: var(--shadow); */
+    z-index: 1000;
+    cursor: pointer;
+    border: 1px solid var(--secondary);
+    transition: box-shadow 0.2s ease-in, background-color 0.2s ease-in,
+      border 0.3s;
+  }
+  
+  .profile-dropdown-btn:hover {
+    background-color: var(--secondary-light-2);
+    box-shadow: var(--shadow);
+  }
+  
+  .profile-img {
+    position: relative;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background: url(/assets/images/user.jpg);
+    background-size: cover;
+  }
+  
+  .profile-img i {
+    position: absolute;
+    right: 0;
+    bottom: 0.3rem;
+    font-size: 0.5rem;
+    color: var(--green);
+  }
+  
+  .profile-dropdown-btn span {
+    margin: 0 0.5rem;
+    margin-right: 0;
+  }
+  
+  .profile-dropdown-list {
+    position: absolute;
+    top: 68px;
+    width: 220px;
+    right: 0;
+    background-color: var(--white);
     border-radius: 10px;
-    border: 2px solid;
+    max-height: 0;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: max-height 0.5s;
+  }
+  
+  .profile-dropdown-list hr {
+    border: 0.5px solid var(--green);
+  }
+  
+  .profile-dropdown-list.active {
+    max-height: 500px;
+  }
+  
+  .profile-dropdown-list-item {
+    padding: 0.5rem 0.5rem 0.5rem 0.5rem;    
+    transition: background-color 0.2s ease-in, padding-left 0.2s;
+  }
+  
+  .profile-dropdown-list-item a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--black);
+  }
+  
+  .profile-dropdown-list-item a i {
+    margin-right: 0.8rem;
+    font-size: 1.1rem;
+    width: 2.3rem;
+    height: 2.3rem;
+    background-color: var(--secondary);
+    color: var(--white);
+    line-height: 2.3rem;
+    text-align: center;
+    margin-right: 1rem;
+    border-radius: 50%;
+    transition: margin-right 0.3s;
+  }
+  
+  .profile-dropdown-list-item:hover {
+    padding-left: 1.5rem;
+    background-color: var(--secondary-light);
+  }
+  
+
+  
+  .sidebar {
     
-    margin: 10px;
+    background-color: var(--secondary-light);
+    color: var(--white);   
+    width: 60px;  /* Largura inicial da sidebar */
+    height: calc(100% - 60px); /* Preenche toda a altura abaixo do header */
+    position: fixed;
+    top: 60px; /* Sidebar começa logo abaixo do cabeçalho */
+    left: 0;
+    transition: width 0.3s ease;
+    padding-top: 20px;
+    overflow: hidden;
     
+  }
+  
+  .sidebar.collapsed {
+    width: 250px;
+
+  }
+  
+  .collapsed .sidebar ul li a{
+    text-align: center; 
+  }
+  
+  .collapsed .sidebar ul li a span.icon{
+    margin: 0;
+  }
+  
+  .collapsed .sidebar ul li a span.title{
+    display: none;
+  }
+  .sidebar .menu ul {
+    list-style: none;
+    padding: 0;
+    top: 20px;
+     
+  }
+  
+  .sidebar .menu ul li {
+    padding: 0.5rem 0.5rem 0.5rem 0.5rem;    
+    transition: background-color 0.2s ease-in, padding-left 0.2s;
+    margin-top: 50px;
+    
+    
+  }
+  
+  .sidebar .menu ul li a {
+    display: block;
+    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+      color: var(--black);
+      position: relative;
+      margin-bottom: 1px;
+      color: var(--secondary);
+      white-space: nowrap;
+      text-decoration: none;
+    
+  }
+  .sidebar ul li a:before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background: var(--secondary);
+    display: none;
 }
-.conteiner-perfil{
- display: flex;  
-    
-    
+  .sidebar .menu ul li a i {
+    background-color: var(--secondary);
+    margin-right: 0.8rem;
+    font-size: 1.1rem;
+    color: var(--white);
+    text-align: center;
+    margin-right: 1rem;
+    border-radius: 50%;
+    width: 2.3rem;
+    height: 2.3rem;
+    line-height: 2.3rem;
+  }
+  
+  .sidebar .menu ul li a:hover {
+    background-color: var(--green);
+    border-radius: 50px 0 0 50px;
+  }
+  .main-content {
+    margin-top: 60px;  /* Espaço para o cabeçalho */
+    transition: margin-left 0.3s ease;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin-left: 60px; /* Inicialmente alinhado à esquerda da sidebar */
+}
+  
+  main {
+    margin-left: 100px;
+    padding: 20px;
+    flex-grow: 1;
+    overflow-y: auto;  /* Ativa a rolagem caso o conteúdo ultrapasse a altura da tela */
+    margin-top: 80px; /* Afastando o conteúdo do cabeçalho */
 }
 
+.sidebar.collapsed + main{
+  margin-left: 250px;
+}
+  
+  
+  
