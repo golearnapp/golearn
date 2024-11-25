@@ -10,7 +10,6 @@ class UsuarioController extends Action {
     public function admin() {
         $usuarioModel = Container::getModel('Usuario');
         $usuario = $usuarioModel->getUsuarioPorId($_SESSION['id']);
-        $this->view->usuario = $usuario;
 
         $views = [
             'apphome',
@@ -24,9 +23,8 @@ class UsuarioController extends Action {
             'visualizar_playlist',
             'listar_videoaulas'
         ];
-
-        foreach ($views as $view) {
+ $this->view->usuario = $usuarios;
             $this->render($view, 'layout2');
-        }
+        
     }
 }

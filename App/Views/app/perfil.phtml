@@ -1,5 +1,6 @@
 
-    <div class="container">
+             <div class="container">
+
         <header>
             <button class="menu-button" id="menuButton" onclick="toggleSidebar()">
                 <div class="line"></div>
@@ -104,8 +105,10 @@
             </nav>
         </aside>
         <main id="mainContent" class="main">
+            <?php var_dump($usuario)?>
 
             <div class="container-painel">
+           
                 <h2>Meu Perfil</h2>
                 <form action="/submit" method="post" enctype="multipart/form-data">
                 <div class="form-section">
@@ -113,7 +116,7 @@
                         <label for="nome">Nome</label>
                         <input type="text" id="nome" value="<?= htmlspecialchars($_SESSION['nome'] ?? '') ?>">
                         <label for="email">Email</label>
-                        <input type="email" id="email" value="<?= htmlspecialchars($_SESSION['email'] ?? '') ?>">
+                        <input type="email" id="email" value="<?= htmlspecialchars($usuario['email'] ?? '') ?>">
                         <label for="telefone">Número de Telefone</label>
                         <input type="text" id="telefone" value="<?= htmlspecialchars($_SESSION['telefone'] ?? '') ?>">
                     </div>

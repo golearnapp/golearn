@@ -13,8 +13,9 @@ class LivroController extends Action
     { 
         $query = $_GET['search'] ?? '';
         if ($query) { $resultados = Livro::buscarLivros($query);
-            
-            $this->render('buscar');
+
+            $this->view->resultados = $resultados;
+            $this->render('book', 'layout2');
         } else { 
             
             $_SESSION['mensagem'] = 'Por favor, insira um termo de busca.';

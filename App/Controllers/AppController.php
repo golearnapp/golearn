@@ -28,6 +28,7 @@ class AppController extends Action {
 
 
 		if($_SESSION['id'] != '' && $_SESSION['nome'] != '') {
+			
 			$this->render('book', 'layout2');
 		} else {
 			header('Location: /login?login=erro');
@@ -38,6 +39,11 @@ class AppController extends Action {
 
 
 		if($_SESSION['id'] != '' && $_SESSION['nome'] != '') {
+			$usuarioModel = Container::getModel('Usuario');
+        	$usuario = $usuarioModel->getUsuarioPorId($_SESSION['id']);
+
+			
+ 			$this->view->usuario = $usuarios;
 			$this->render('perfil', 'layout2');
 		} else {
 			header('Location: /login?login=erro');
