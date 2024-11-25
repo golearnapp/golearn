@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Controllers;
-
+use App\Models\Playlist;
+use App\Models\Video;
 use App\Middleware\AuthMiddleware;
 use MF\Controller\Action;
 use MF\Model\Container;
@@ -67,20 +68,23 @@ class AppController extends Action {
 		
 
 		if($_SESSION['id'] != '' && $_SESSION['nome'] != '') {
+			$videoModel = Container::getModel('Videoaula');
+        	$playlistModel = Container::getModel('Playlist');
+			$videos = $videoModel->getAll();
+			$playlists = $playlistModel->getAll();
+			$this->view->video = $videos;
+        	$this->view->playlists = $playlists;
 			$this->render('upload', 'layout2');
 		} else {
 			header('Location: /login?login=erro');
 		}
 
-		$playlistModel = Container::getModel('Playlist');
-		$videoModel = Container::getModel('Video');
-
-		// Atribui as playlists e vídeos ao objeto view
-		$this->view->playlists = $playlistModel->getAllPlaylists();
-		$this->view->videos = $videoModel->getAllVideos();
+		
 
 		
 	}
+	
+	
 
 	public function listar_playlists() {
 		session_start();
@@ -96,8 +100,15 @@ class AppController extends Action {
 	public function listas_arquivo() {
 		session_start();
 		
-
+		
 		if($_SESSION['id'] != '' && $_SESSION['nome'] != '') {
+			$arquivo = Container::getModel('Arquivo');
+			
+			$arquivos = $arquivo->getAll();
+			
+			$this->view->arquivo = $arquivos;
+			
+			
 			$this->render('listas_arquivo', 'layout2');
 		} else {
 			header('Location: /login?login=erro');

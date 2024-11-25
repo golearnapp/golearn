@@ -194,3 +194,15 @@ COMMIT;
 UPDATE usuarios
 SET nivel_acesso = 2
 WHERE id = 1;
+
+
+CREATE TABLE arquivos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome_arquivo VARCHAR(255) NOT NULL,          -- Nome original do arquivo enviado
+    caminho_arquivo VARCHAR(255) NOT NULL,       -- Caminho do arquivo no servidor
+    tipo_arquivo VARCHAR(50) NOT NULL,           -- Tipo MIME do arquivo (ex: application/pdf)
+    tamanho_arquivo BIGINT NOT NULL,             -- Tamanho do arquivo em bytes
+    enviado_por INT NOT NULL,                    -- ID do usuário que enviou o arquivo
+    data_envio TIMESTAMP DEFAULT CURRENT_TIMESTAMP, -- Data e hora do envio
+    FOREIGN KEY (enviado_por) REFERENCES usuarios(id) -- Relaciona com a tabela de usuários
+);

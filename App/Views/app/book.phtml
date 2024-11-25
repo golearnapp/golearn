@@ -109,25 +109,29 @@
         </aside>
         <main id="mainContent">
             <h2 class="titulo">Pesquisar Livro</h2>
-            <form action="" method="get" class="pesquisa">
+            <form action="/buscar" method="get" class="pesquisa">
                 <input type="text" placeholder="Pesquisar Livros">
                 <button type="submit" class="serarch-button">
                     <i class="fa-solid fa-search"></i>
                 </button>
             </form>
-
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Nome</th>
-                        <th>Autor</th>
-                        <th>Editora</th>
-                        <th>Edição</th>
-                    </tr>
-                </thead>
-                <tbody>
-
-                </tbody>
-            </table>
+            <h2>Resultados da busca:</h2>
+            <?php if (isset($_SESSION['mensagem'])): ?>
+            <div class="alert">
+                <?= $_SESSION['mensagem']; ?>
+                <?php unset($_SESSION['mensagem']); ?>
+            </div>
+            <?php endif; ?>
+            <?php if (isset($resultados['docs'])): ?>
+                
+                 <?php foreach ($resultados['docs'] as $book): ?>
+                     <h3><?= htmlspecialchars($book['title']) ?></h3>
+                      <p>Autor: <?= htmlspecialchars($book['author_name'][0] ?? 'N/A') ?></p>
+                       <p>Ano de Publicação: <?= htmlspecialchars($book['first_publish_year'] ?? 'N/A') ?></p>
+                       <hr> 
+                       <?php endforeach; ?>
+                <?php else: ?>
+                     <p>Nenhum livro encontrado.</p> 
+            <?php endif; ?>
         </main>
     </div>

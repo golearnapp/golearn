@@ -56,25 +56,12 @@ class Playlist extends Model
         $stmt->bindValue(':id_video', $id_video);
         return $stmt->execute();
     }
+    
 
-    // Método para obter vídeos de uma playlist
-    public function obterVideosDaPlaylist($id_playlist)
-    {
-        $query = "SELECT v.id, v.titulo, v.caminho, v.criado_em
-                  FROM videoaulas v
-                  JOIN playlist_videos pv ON v.id = pv.id_video
-                  WHERE pv.id_playlist = :id_playlist
-                  ORDER BY pv.adicionado_em DESC";
-        $stmt = $this->db->prepare($query);
-        $stmt->bindValue(':id_playlist', $id_playlist);
-        $stmt->execute();
-
+    public function getAll() {
+        $query = "SELECT * FROM playlists";
+        $stmt = $this->db->query($query);
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
-    }
-
-    public function getAllPlaylists() {
-        $query = "SELECT id, nome FROM playlists";
-        return $this->db->query($query)->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function exists($id)

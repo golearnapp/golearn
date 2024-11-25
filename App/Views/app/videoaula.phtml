@@ -108,8 +108,9 @@
             </nav>
         </aside>
         <main id="mainContent">
+            <a href="/apphome">Voltar para o Painel</a>
         <h1>Minhas Playlists</h1>
-        <a href="/apphome">Voltar para o Painel</a>
+        
 
         <?php if (isset($_SESSION['mensagem'])): ?>
             <div class="alert">
@@ -119,7 +120,7 @@
         <?php endif; ?>
 
         <?php if (!empty($this->view->playlists)): ?>
-            <ul>
+            
                 <?php foreach ($this->view->playlists as $playlist): ?>
                     <li>
                         <a href="/playlist/visualizar?id=<?= htmlspecialchars($playlist['id']) ?>">

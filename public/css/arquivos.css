@@ -1,0 +1,32 @@
+.main-arquivo{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.main-arquivo h1{
+    font-size: 1.5rem;
+    color: var(--black);
+    font-weight: 700;
+}
+
+.main-arquivo p{
+    font-size: 1rem;
+    color: var(--black);
+    font-weight: 400;
+}
+
+.table-arquivo{
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid var(--black);
+}
+
+.table-arquivo th{
+    background: var(--secondary);
+    color: var(--white);
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 0.5rem;
+    text-align: left;
+}

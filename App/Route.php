@@ -137,7 +137,7 @@ class Route extends Bootstrap {
         ];
 
         $routes['adicionar_video_playlist'] = [
-            'route' => '/playlist/adicionar-video',
+            'route' => '/playlist/adicionar_video',
             'controller' => 'PlaylistController',
             'action' => 'adicionarVideo'
         ];
@@ -171,6 +171,12 @@ class Route extends Bootstrap {
 			'route' => '/arquivo/salvar',
 			'controller' => 'ArquivoController',
             'action' => 'postararquivo'
+		];
+
+		$routes['buscar'] = [
+			'route' => '/buscar',
+			'controller' => 'livroController',
+			'action' => 'buscar'
 		];
 
 		$this->setRoutes($routes);

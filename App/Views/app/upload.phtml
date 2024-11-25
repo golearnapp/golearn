@@ -139,34 +139,26 @@
 
             <div class="tab-contents">
             <div class="content" id="form4">
-           
+            
                     <form action="/playlist/adicionar_video" method="POST">
                         <label for="id_playlist">Playlist:</label>
                         <select name="id_playlist" id="id_playlist" required>
-                            <option value="">Escolha uma playlist</option>
-                            <?php if (!empty($this->playlists)): ?>
-                                <?php foreach ($this->playlists as $playlist): ?>
-                                    <option value="<?= htmlspecialchars($playlist['id']) ?>">
-                                        <?= htmlspecialchars($playlist['nome']) ?>
+                            <option value="">Escolha uma playlist</option>                            
+                                <?php foreach ($this->view->playlists as $playlists): ?>
+                                    <option value="<?= htmlspecialchars($playlists['id']) ?>">
+                                        <?= htmlspecialchars($playlists['titulo']) ?>
                                     </option>
-                                <?php endforeach; ?>
-                            <?php else: ?>
-                                <option value="">Nenhuma playlist disponível</option>
-                            <?php endif; ?>
+                                <?php endforeach; ?> 
                         </select>
 
                         <label for="id_video">Selecione um vídeo:</label><br>
                         <select name="id_video" id="id_video" required>
                             <option value="">Escolha um vídeo</option>
-                            <?php if (!empty($this->videos)): ?>
-                                <?php foreach ($this->videos as $video): ?>
-                                    <option value="<?= htmlspecialchars($video['id']) ?>">
-                                        <?= htmlspecialchars($video['titulo']) ?>
+                                <?php foreach ($this->view->video as $videos): ?>
+                                    <option value="<?= htmlspecialchars($videos['id']) ?>">
+                                        <?= htmlspecialchars($videos['titulo']) ?>
                                     </option>
                                 <?php endforeach; ?>
-                            <?php else: ?>
-                                <option value="">Nenhum vídeo disponível</option>
-                            <?php endif; ?>
                         </select>
 
                         <button type="submit">Adicionar Vídeo</button>

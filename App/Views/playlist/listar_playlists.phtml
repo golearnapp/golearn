@@ -119,15 +119,17 @@
         <?php endif; ?>
 
         <?php if (!empty($this->view->playlists)): ?>
-            <ul>
+            <div>
                 <?php foreach ($this->view->playlists as $playlist): ?>
-                    <li>
+                    
                         <a href="/playlist/visualizar?id=<?= htmlspecialchars($playlist['id']) ?>">
                             <?= htmlspecialchars($playlist['titulo']) ?>
                         </a>
-                    </li>
+            </div>
+                
+                    
                 <?php endforeach; ?>
-            </ul>
+           
         <?php else: ?>
             <p>Você ainda não criou nenhuma playlist.</p>
         <?php endif; ?>

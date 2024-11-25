@@ -96,10 +96,10 @@ class Usuario extends Model {
     }
     // Método para listar todos os usuários
     public function getAll() {
-        $query = "SELECT id, nome, email, telefone, nivel_acesso FROM usuarios";
+        $query = "SELECT * FROM usuarios";
         $stmt = $this->db->query($query);
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
-    }
+    } 
 
     // Atualiza o nível de acesso de um usuário
     public function atualizarNivelAcesso($idUsuario, $novoNivel)

@@ -12,14 +12,14 @@ class AdminController extends Action
     // Exibe a página de gerenciamento de usuários
     public function admin()
     {
-        AuthMiddleware::verificarNivelAcesso(1); // Apenas Administradores
-
+        AuthMiddleware::verificarNivelAcesso(1); // Apenas Administradores        
         $usuario = Container::getModel('Usuario');
         // Buscar todos os usuários
+        
         $usuarios = $usuario->getAll();
         // Atribuir os usuários à view
-        $this->view->usuarios = $usuarios;
-
+        
+        $this->view->usuarios = $usuarios;        
         // Renderizar a view 'admin' com o layout 'layout2'
         $this->render('admin', 'layout2');
     }

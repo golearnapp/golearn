@@ -22,7 +22,10 @@
                             <i class="fa-solid fa-circle "></i>
                         </div>
 
-                        <span>Victoria
+                        <span>
+                        <?php foreach ($this->view->usuarios as $usuario): ?>
+                            <?= $usuario['nome'] ?>
+                            <?php endforeach; ?>
                             <i class="fa-solid fa-angle-down"></i>
                         </span>
                     </div>
