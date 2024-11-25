@@ -71,7 +71,7 @@
   .profile-dropdown {
     position: relative;
     width: fit-content;
-    margin-left: 50px;
+    margin-left: 0;
     
   }
   
@@ -80,9 +80,9 @@
     align-items: center;
     justify-content: space-between;
     padding-right: 1rem;
-    font-size: 0.9rem;
-    font-weight: 500;
-    width: 150px;
+    font-size: 0.5rem;
+    font-weight: 400;
+    width: 160px;
     border-radius: 50px;
     color: var(--black);
     /* background-color: white;
@@ -106,6 +106,7 @@
     border-radius: 50%;
     background: url(/assets/images/user.jpg);
     background-size: cover;
+    
   }
   
   .profile-img i {
@@ -117,8 +118,11 @@
   }
   
   .profile-dropdown-btn span {
-    margin: 0 0.5rem;
     margin-right: 0;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+
   }
   
   .profile-dropdown-list {

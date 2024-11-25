@@ -10,19 +10,15 @@
                 <img src="/assets/images/logo.svg" alt="logo">
             </div>
             <div class="button">
-                <div>
-                    <button class="serarch-button">
-                        <i class="fa-solid fa-search"></i>
-                    </button>
-
-                </div>
+                
                 <div class="profile-dropdown">
                     <div onclick="initializeDropdown()" class="profile-dropdown-btn">
                         <div class="profile-img">
                             <i class="fa-solid fa-circle "></i>
                         </div>
 
-                        <span>Victoria
+                        <span>
+                            <?php echo $_SESSION['nome'] ?>
                             <i class="fa-solid fa-angle-down"></i>
                         </span>
                     </div>
@@ -111,14 +107,15 @@
 
             <div class="container-painel">
                 <h2>Meu Perfil</h2>
+                <form action="/submit" method="post" enctype="multipart/form-data">
                 <div class="form-section">
                     <div class="inputs">
                         <label for="nome">Nome</label>
-                        <input type="text" id="nome" placeholder="Digite seu nome">
+                        <input type="text" id="nome" value="<?= htmlspecialchars($_SESSION['nome'] ?? '') ?>">
                         <label for="email">Email</label>
-                        <input type="email" id="email" placeholder="Digite seu email">
+                        <input type="email" id="email" value="<?= htmlspecialchars($_SESSION['email'] ?? '') ?>">
                         <label for="telefone">Número de Telefone</label>
-                        <input type="text" id="telefone" placeholder="Digite seu telefone">
+                        <input type="text" id="telefone" value="<?= htmlspecialchars($_SESSION['telefone'] ?? '') ?>">
                     </div>
                     <div class="image-section">
                         <img src="/assets/images/user.jpg" alt="Perfil">
@@ -126,7 +123,8 @@
                         <p>Tamanho máximo: 1MB<br>Formatos: JPEG, PNG</p>
                     </div>
                 </div>
-                <button class="save-btn">Gravar</button>
+                <button class="save-btn">Alterar</button>
+                </form>
             </div>
         </main>
     </div>

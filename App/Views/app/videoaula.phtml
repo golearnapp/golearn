@@ -10,19 +10,15 @@
                 <img src="/assets/images/logo.svg" alt="logo">
             </div>
             <div class="button">
-                <div>
-                    <button class="serarch-button">
-                        <i class="fa-solid fa-search"></i>
-                    </button>
-
-                </div>
+               
                 <div class="profile-dropdown">
                     <div onclick="initializeDropdown()" class="profile-dropdown-btn">
                         <div class="profile-img">
                             <i class="fa-solid fa-circle "></i>
                         </div>
 
-                        <span>Victoria
+                        <span>
+                            <?php echo $_SESSION['nome'] ?>
                             <i class="fa-solid fa-angle-down"></i>
                         </span>
                     </div>
@@ -108,6 +104,13 @@
             </nav>
         </aside>
         <main id="mainContent">
+            <form action="/buscar" method="get" class="pesquisa">
+                <input type="text" placeholder="Pesquisar Livros">
+                <button type="submit" class="serarch-button">
+                    <i class="fa-solid fa-search"></i>
+                </button>
+            </form>
+
             <a href="/apphome">Voltar para o Painel</a>
         <h1>Minhas Playlists</h1>
         

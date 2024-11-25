@@ -66,7 +66,7 @@ class Playlist extends Model
 
     public function exists($id)
 {
-    $query = "SELECT COUNT(*) FROM {$this->table} WHERE id = :id";
+    $query = "SELECT COUNT(*) FROM playlists WHERE id = :id";
     $stmt = $this->db->prepare($query);
     $stmt->bindValue(':id', $id);
     $stmt->execute();

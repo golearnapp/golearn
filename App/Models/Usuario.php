@@ -77,6 +77,15 @@ class Usuario extends Model {
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
 
+    public function getUsuarioPorId() {
+        $query = "select nome, email from usuarios where id = :id";
+        $stmt = $this->db->prepare($query);
+        $stmt->bindValue(':id', $this->__get('id'));
+        $stmt->execute();
+    
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
     // Validação de credenciais (para login)
     public function autenticar() {
         $query = "SELECT id, nome, email, senha, nivel_acesso FROM usuarios WHERE email = :email";

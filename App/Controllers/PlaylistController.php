@@ -54,7 +54,7 @@ class PlaylistController extends Action
 
         $id_playlist = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
         if ($id_playlist) {
-            $playlist = Container::getModel('Playlist');
+            $playlist = Container::getModel('Playlist_video');
             $videos = $playlist->obterVideosDaPlaylist($id_playlist);
             $this->view->videos = $videos;
             $this->view->playlist = $playlist;

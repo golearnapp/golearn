@@ -34,7 +34,7 @@ class Playlist_video extends Model
     // Método para obter vídeos de uma playlist
     public function obterVideosDaPlaylist($id_playlist)
     {
-        $query = "SELECT v.* FROM videos v
+        $query = "SELECT v.* FROM videoaulas v
                   JOIN playlist_videos pv ON v.id = pv.id_video
                   WHERE pv.id_playlist = :id_playlist";
         $stmt = $this->db->prepare($query);
