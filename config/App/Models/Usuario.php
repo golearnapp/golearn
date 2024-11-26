@@ -78,7 +78,7 @@ class Usuario extends Model {
     }
 
     public function getUsuarioPorId() {
-        $query = "select nome, email from usuarios where id = :id";
+        $query = "select nome, email, telefone from usuarios where id = :id";
         $stmt = $this->db->prepare($query);
         $stmt->bindValue(':id', $this->__get('id'));
         $stmt->execute();

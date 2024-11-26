@@ -7,14 +7,15 @@
 @import 'perfil.css';
 @import 'forms-uplod.css';
 @import 'arquivos.css';
+@import 'lista_arquivos.css';
 
 
 
 :root {
     --primary: #eeeeee;
-    --secondary: #227c70;
-    --green: #82cd47;
-    --secondary-light: rgb(34, 124, 112, 0.2);
+    --secondary:  #008f24;
+    --green: #03a52b;
+    --secondary-light: #dadada;
     --secondary-light-2: rgb(127, 183, 126, 0.1);
     --white: #fff;
     --black: #393e46;

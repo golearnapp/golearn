@@ -104,6 +104,13 @@ class Route extends Bootstrap {
 			'action' => 'listas_arquivo'
 		);
 
+		$routes['Note'] = array(
+			'route' => '/note',
+			'controller' => 'NoteController',
+			'action' => 'note'
+
+		);
+
 		// Rotas de Administração
 		$routes['admin'] = array(
 			'route' => '/admin',
@@ -178,6 +185,10 @@ class Route extends Bootstrap {
 			'controller' => 'livroController',
 			'action' => 'buscar'
 		];
+
+		// Routa note
+
+		
 
 		$this->setRoutes($routes);
 	}

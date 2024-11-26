@@ -15,6 +15,7 @@ class AuthController extends Action {
 		// Recebe os dados do formulário
 		$usuario->__set('email', $_POST['email']);
 		$usuario->__set('senha', $_POST['senha']);
+		
 	
 		// Verifica credenciais
 		$usuario->autenticar();
@@ -26,6 +27,8 @@ class AuthController extends Action {
 	
 			$_SESSION['id'] = $usuario->__get('id');
 			$_SESSION['nome'] = $usuario->__get('nome');
+			$_SESSION['email'] = $usuario->__get('email');
+			$_SESSION['telefone'] = $usuario->__get('telefone');
 			$_SESSION['nivel_acesso'] = $usuario->__get('nivel_acesso');
 	
 			// Redireciona baseado no nível de acesso

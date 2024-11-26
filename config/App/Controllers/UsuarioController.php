@@ -9,7 +9,8 @@ use MF\Model\Container;
 class UsuarioController extends Action {
     public function admin() {
         $usuarioModel = Container::getModel('Usuario');
-        $usuario = $usuarioModel->getUsuarioPorId($_SESSION['id']);
+        $usuario = $usuarioModel->getAll($_SESSION['id'],  $_SESSION['nome'], $_SESSION['email'], $_SESSION['telefone']);
+        
 
         $views = [
             'apphome',

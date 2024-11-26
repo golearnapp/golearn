@@ -1,6 +1,9 @@
+<?php
 
-             <div class="container">
+$resultados = $this->view->resultados;
 
+?>
+<div class="container">
         <header>
             <button class="menu-button" id="menuButton" onclick="toggleSidebar()">
                 <div class="line"></div>
@@ -90,7 +93,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href=" upload">
+                        <a href=" /upload">
                             <i class="fa-solid fa-upload"></i>
                             Uplod
                         </a>
@@ -104,30 +107,32 @@
                 </ul>
             </nav>
         </aside>
-        <main id="mainContent" class="main">
-            <?php var_dump($usuario)?>
-
-            <div class="container-painel">
-           
-                <h2>Meu Perfil</h2>
-                <form action="/submit" method="post" enctype="multipart/form-data">
-                <div class="form-section">
-                    <div class="inputs">
-                        <label for="nome">Nome</label>
-                        <input type="text" id="nome" value="<?= htmlspecialchars($_SESSION['nome'] ?? '') ?>">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" value="<?= htmlspecialchars($usuario['email'] ?? '') ?>">
-                        <label for="telefone">Número de Telefone</label>
-                        <input type="text" id="telefone" value="<?= htmlspecialchars($_SESSION['telefone'] ?? '') ?>">
-                    </div>
-                    <div class="image-section">
-                        <img src="/assets/images/user.jpg" alt="Perfil">
-                        <button>Selecionar A Imagem</button>
-                        <p>Tamanho máximo: 1MB<br>Formatos: JPEG, PNG</p>
-                    </div>
-                </div>
-                <button class="save-btn">Alterar</button>
-                </form>
-            </div>
-        </main>
+        <main id="mainContent">
+    <h2 class="titulo">Pesquisar Livro</h2>
+    <form action="/buscar" method="get" class="pesquisa">
+        <input type="text" placeholder="Pesquisar Livros" name="search">
+        <button type="submit" class="serarch-button">
+            <i class="fa-solid fa-search"></i>
+        </button>
+    </form>
+    <h2>Resultados da busca:</h2>
+    <?php if (isset($_SESSION['mensagem'])): ?>
+    <div class="alert">
+        <?= $_SESSION['mensagem']; ?>
+        <?php unset($_SESSION['mensagem']); ?>
     </div>
+    <?php endif; ?>
+
+    <?php if (isset($resultados['docs'])): ?>
+
+    <?php foreach ($resultados['docs'] as $book): ?>
+    <h3><?= htmlspecialchars($book['title']) ?></h3>
+    <p>Autor: <?= htmlspecialchars($book['author_name'][0] ?? 'N/A') ?></p>
+    <p>Ano de Publicação: <?= htmlspecialchars($book['first_publish_year'] ?? 'N/A') ?></p>
+    <hr>
+    <?php endforeach; ?>
+    <?php else: ?>
+    <p>Nenhum livro encontrado.</p>
+    <?php endif; ?>
+</main>
+</div>
