@@ -22,7 +22,8 @@ class UsuarioController extends Action {
             'videoaula',
             'criar_playlist',
             'visualizar_playlist',
-            'listar_videoaulas'
+            'listar_videoaulas',
+            'book'
         ];
  $this->view->usuario = $usuarios;
             $this->render($view, 'layout2');

@@ -70,7 +70,7 @@ class Route extends Bootstrap {
 
 		$routes['book'] = array(
 			'route' => '/book',
-			'controller' => 'AppController',
+			'controller' => 'livroController',
 			'action' => 'book'
 		);
 

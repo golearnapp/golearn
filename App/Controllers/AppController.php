@@ -29,7 +29,7 @@ class AppController extends Action {
 
 		if($_SESSION['id'] != '' && $_SESSION['nome'] != '') {
 			
-			$this->render('book', 'layout2');
+			$this->render('livro/book', 'layout2');
 		} else {
 			header('Location: /login?login=erro');
 		}
