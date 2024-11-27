@@ -1,0 +1,32 @@
+.titulo{
+    font-size: 40px;
+    font-weight: bold;
+    color: var(--green);
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.pesquisa{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    align-items: center;
+    
+}
+
+.pesquisa input{
+    width: 50%;
+    padding: 10px;
+    border: 1px solid var(--secondary);
+    border-radius: 5px;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+.table{
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    border: 1px solid var(--black);
+    border-radius: 50px;
+}

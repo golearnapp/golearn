@@ -1,0 +1,146 @@
+<!-- CSS -->
+<link rel="stylesheet" href="/css/admin_page.css">
+<div class="container">
+        <header>
+            <button class="menu-button" id="menuButton" onclick="toggleSidebar()">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </button>
+            <div class="logo">
+                <img src="/assets/images/logo.svg" alt="logo">
+            </div>
+            <div class="button">
+               
+                <div class="profile-dropdown">
+                    <div onclick="initializeDropdown()" class="profile-dropdown-btn">
+                        <div class="profile-img">
+                            <i class="fa-solid fa-circle "></i>
+                        </div>
+
+                        <span>
+                            <?php echo $_SESSION['nome'] ?>
+                            <i class="fa-solid fa-angle-down"></i>
+                        </span>
+                    </div>
+
+                    <ul class="profile-dropdown-list">
+                        <li class="profile-dropdown-list-item">
+                            <a href="/perfil">
+                                <i class="fa-regular fa-user"></i>
+                                Edit Profile
+                            </a>
+                        </li>
+
+                        <li class="profile-dropdown-list-item">
+                            <a href="#">
+                                <i class="fa-regular fa-envelope"></i>
+                                Inbox
+                            </a>
+                        </li>
+
+                        <li class="profile-dropdown-list-item">
+                            <a href="#">
+                                <i class="fa-solid fa-chart-line"></i>
+                                Analytics
+                            </a>
+                        </li>
+
+                        <li class="profile-dropdown-list-item">
+                            <a href="#">
+                                <i class="fa-solid fa-sliders"></i>
+                                Settings
+                            </a>
+                        </li>
+
+                        <li class="profile-dropdown-list-item">
+                            <a href="#">
+                                <i class="fa-regular fa-circle-question"></i>
+                                Help & Support
+                            </a>
+                        </li>
+                        <hr />
+
+                        <li class="profile-dropdown-list-item">
+                            <a href="/sair">
+                                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                                Logout
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+
+        </header>
+
+        <aside class="sidebar" id="sidebar">
+            <nav class="menu">
+                <ul>
+                    <li>
+                        <a href="/apphome">
+                            <i class="fa-solid fa-house"></i>
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/book">
+                            <i class="fa-solid fa-book"></i>
+                            Livros
+                        </a>
+                    </li>
+                    <li>
+                        <a href=" /upload">
+                            <i class="fa-solid fa-upload"></i>
+                            Uplod
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/calendario">
+                            <i class="fa-regular fa-calendar-days"></i>
+                            Calendario
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+    <h1>Gerenciar Usuários</h1>
+    <table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Telefone</th>
+            <th>Nível de Acesso</th>
+            <th></th>
+            <th></th>
+
+        </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($this->view->usuarios as $usuario): ?>
+                <tr>
+                    <td><?= $usuario['id'] ?></td>
+                    <td><?= $usuario['nome'] ?></td>
+                    <td><?= $usuario['email'] ?></td>
+                    <td><?= $usuario['telefone'] ?></td>
+                    <td><?= $usuario['nivel_acesso'] ?></td>
+                    <td>
+                        <form action="/admin/alterar_nivel" method="POST">
+                            <input type="hidden" name="id_usuario" value="<?= $usuario['id'] ?>">
+                            <select name="nivel_acesso">
+                                <option value="1" <?= $usuario['nivel_acesso'] == 1 ? 'selected' : '' ?>>Administrador</option>
+                                <option value="2" <?= $usuario['nivel_acesso'] == 2 ? 'selected' : '' ?>>Gestor</option>
+                                <option value="3" <?= $usuario['nivel_acesso'] == 3 ? 'selected' : '' ?>>Usuario</option>
+                            </select>
+                            <button type="submit">Alterar</button>
+                        </form>
+                    </td>
+                </tr>
+                <?php endforeach; ?>
+        </tbody>
+    </table>
+</table>
+

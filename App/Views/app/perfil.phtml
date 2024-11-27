@@ -1,0 +1,133 @@
+
+             <div class="container">
+
+        <header>
+            <button class="menu-button" id="menuButton" onclick="toggleSidebar()">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </button>
+            <div class="logo">
+                <img src="/assets/images/logo.svg" alt="logo">
+            </div>
+            <div class="button">
+                
+                <div class="profile-dropdown">
+                    <div onclick="initializeDropdown()" class="profile-dropdown-btn">
+                        <div class="profile-img">
+                            <i class="fa-solid fa-circle "></i>
+                        </div>
+
+                        <span>
+                            <?php echo $_SESSION['nome'] ?>
+                            <i class="fa-solid fa-angle-down"></i>
+                        </span>
+                    </div>
+
+                    <ul class="profile-dropdown-list">
+                        <li class="profile-dropdown-list-item">
+                            <a href="/perfil">
+                                <i class="fa-regular fa-user"></i>
+                                Edit Profile
+                            </a>
+                        </li>
+
+                        <li class="profile-dropdown-list-item">
+                            <a href="#">
+                                <i class="fa-regular fa-envelope"></i>
+                                Inbox
+                            </a>
+                        </li>
+
+                        <li class="profile-dropdown-list-item">
+                            <a href="#">
+                                <i class="fa-solid fa-chart-line"></i>
+                                Analytics
+                            </a>
+                        </li>
+
+                        <li class="profile-dropdown-list-item">
+                            <a href="#">
+                                <i class="fa-solid fa-sliders"></i>
+                                Settings
+                            </a>
+                        </li>
+
+                        <li class="profile-dropdown-list-item">
+                            <a href="#">
+                                <i class="fa-regular fa-circle-question"></i>
+                                Help & Support
+                            </a>
+                        </li>
+                        <hr />
+
+                        <li class="profile-dropdown-list-item">
+                            <a href="/sair">
+                                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                                Logout
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+
+        </header>
+
+        <aside class="sidebar" id="sidebar">
+            <nav class="menu">
+                <ul>
+                    <li>
+                        <a href="/apphome">
+                            <i class="fa-solid fa-house"></i>
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/book">
+                            <i class="fa-solid fa-book"></i>
+                            Livros
+                        </a>
+                    </li>
+                    <li>
+                        <a href=" upload">
+                            <i class="fa-solid fa-upload"></i>
+                            Uplod
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/calendario">
+                            <i class="fa-regular fa-calendar-days"></i>
+                            Calendario
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+        <main id="mainContent" class="main">
+            <?php var_dump($usuario)?>
+
+            <div class="container-painel">
+           
+                <h2>Meu Perfil</h2>
+                <form action="/submit" method="post" enctype="multipart/form-data">
+                <div class="form-section">
+                    <div class="inputs">
+                        <label for="nome">Nome</label>
+                        <input type="text" id="nome" value="<?= htmlspecialchars($_SESSION['nome'] ?? '') ?>">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" value="<?= htmlspecialchars($_SESSION['email'] ?? '') ?>">
+                        <label for="telefone">Número de Telefone</label>
+                        <input type="text" id="telefone" value="<?= htmlspecialchars($_SESSION['telefone'] ?? '') ?>">
+                    </div>
+                    <div class="image-section">
+                        <img src="/assets/images/user.jpg" alt="Perfil">
+                        <button>Selecionar A Imagem</button>
+                        <p>Tamanho máximo: 1MB<br>Formatos: JPEG, PNG</p>
+                    </div>
+                </div>
+                <button class="save-btn">Alterar</button>
+                </form>
+            </div>
+        </main>
+    </div>

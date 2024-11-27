@@ -1,0 +1,41 @@
+
+  <div id="page" class="flex">
+    <div>
+      <a href="/"><img src="../assets/images/logo.svg" alt="" /></a>
+      <main class="main-login">
+        <div class="headline">
+          <h1>Acesse a plataforma</h1>
+        </div>
+        <p>
+          Faça login ou registre-se para começar a estudar com a GoLearn ainda
+          hoje.
+        </p>
+        <form action="/autenticar" method="post">
+        <?php if($this->view->login == 'erro') { ?>
+          <small class="text-error">*E-mail e ou senha inválido</small>
+        <?php } ?>  
+          <div class="input-wrapper">
+            <label for="email">E-mail</label>
+            <input id="email" type="email" name="email" placeholder="Digite seu e-mail"  />
+          </div>
+          <div class="input-wrapper">
+            <label for="senha">Senha</label>
+           
+            <input id="senha" type="password" name="senha" placeholder="Digite sua senha" />
+            
+            <div class="label-wrapper">              
+              <a href="/recover">Esqueceu a senha?</a>
+            </div>
+          </div>
+
+          <button type="submit">Entrar</button>
+
+          <div class="create-account">
+            <p>Não possui uma conta? <a href="/signup">Cadastre-se</a></p>
+          </div>
+        </form>
+      </main>
+    </div>
+    <img src="../assets/images/banner.svg" alt="" />
+  </div>
+

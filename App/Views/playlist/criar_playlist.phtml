@@ -1,0 +1,33 @@
+<<h1>Criar Nova Playlist</h1>
+
+<!-- Exibe mensagens de feedback -->
+<?php if (isset($_SESSION['mensagem'])): ?>
+    <div class="alert">
+        <?= htmlspecialchars($_SESSION['mensagem']); ?>
+        <?php unset($_SESSION['mensagem']); ?>
+    </div>
+<?php endif; ?>
+
+<!-- Formulário para criar a playlist -->
+<form action="/playlist/salvar" method="POST">
+    <label for="titulo">Título da Playlist:</label><br>
+    <input 
+        type="text" 
+        name="titulo" 
+        id="titulo" 
+        placeholder="Digite o título da playlist" 
+        required>
+    <br><br>
+
+    <label for="descricao">Descrição (opcional):</label><br>
+    <textarea 
+        name="descricao" 
+        id="descricao" 
+        rows="4" 
+        placeholder="Digite uma descrição para a playlist"></textarea>
+    <br><br>
+
+    <button type="submit">Criar Playlist</button>
+</form>
+
+<a href="/playlists">Voltar para Minhas Playlists</a>

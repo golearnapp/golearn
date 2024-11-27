@@ -1,0 +1,89 @@
+
+.main-uplod {
+   
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+#container {
+    background-color: #f0f8ff;
+    width: 600px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.tab-buttons {
+    display: flex;
+    gap: 6px;
+}
+
+.tab-btn {
+    width: 100%;
+    border: none;
+    color: #020617;
+    background-color: #f0f8ff;
+    border-radius: 8px 8px 0px 0px;
+    font-weight: 500;
+    padding: 8px;
+    cursor: pointer;
+    transition: background-color .3s ease;
+}
+
+.tab-btn.active {
+    background-color: #c7d2fe;
+}
+
+.tab-btn:hover {
+    background-color: #a5b4fc;
+}
+
+.content {
+   display: none;
+}
+.content.active {
+    display: block;
+}
+
+.content form {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 0px 0px 8px 8px;
+    background-color: #f0f8ff;
+}
+
+.content form label {
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.content form input {
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #020617;
+    border-radius: 4px;
+}
+
+.content form button {
+    padding: 8px;
+    border: none;
+    background-color:#c7d2fe;;
+    color: #020617;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color .3s ease;
+    margin-top: 20px;
+}
+
+.content form button:hover {
+    background-color: #a5b4fc;
+}
+
+.content form textarea {
+    resize: none;
+}
+
+

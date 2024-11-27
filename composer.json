@@ -1,0 +1,19 @@
+{
+	"name": "Golearn",
+	"require": {
+		"php": ">= 7.0"
+	},
+	"authors": [
+		{
+			"name": "Junio de Matos, Amanda Frolini, Jorge Bernardi, Vitor Bressan, Felipe Regiani, Leonardo Cherri",
+			"email": "junio237@hotmail.com"
+						
+		}
+	],
+	"autoload": {
+		"psr-4": {
+			"App\\": "App/",
+			"MF\\": "vendor/MF/"
+		}
+	}
+}

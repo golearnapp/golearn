@@ -1,0 +1,34 @@
+.curso{    
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;  
+}
+
+.container-cir{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  
+}
+
+.container-cir a{
+    text-decoration: none;
+    color:  #231F20;
+    font-size: 20px;
+}
+
+.container-circulo{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: #231F20;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-top: 20px;    
+}
+
+
+

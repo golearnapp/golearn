@@ -1,0 +1,51 @@
+
+  <div id="page" class="flex">
+    <div>
+      <a href="/"><img src="../assets/images/logo.svg" alt="" /></a>
+      <main class="main-signup">
+        <div class="headline">
+          <h1>Cadastre-se</h1>
+        </div>
+        <p>E comece hoje mesmo a estudar usando a plataforma da GoLearn</p>
+        <form action="/register" method="post">
+          <?php if($this->view->erroCadastro) { ?>
+            <div class="text-error">            
+              <small class="text-error">*Erro ao tentar realizar o cadastro, verifique se os campos foram preenchidos corretamente.</small>            
+          </div>
+          <?php } ?>
+
+          <div class="input-wrapper">
+            <label for="nome">Nome completo</label>
+            <input id="nome" type="text"  name="nome" placeholder="Digite seu nome completo"  />
+          </div>
+          <div class="input-wrapper">
+            <label for="telefone">Telefone</label>
+            <input id="telefone" type="telefone"  name="telefone" placeholder="(XX) XXXXX-XXXX" />
+          </div>
+          <div class="input-wrapper">
+            <label for="email">E-mail</label>
+            <input id="email" type="email"  name="email" placeholder="Digite seu e-mail" />
+          </div>
+          <div class="input-wrapper">
+            <div class="label-wrapper">
+              <label for="senha">Senha</label>
+            </div>
+            <input id="senha" type="password"  name="senha" placeholder="Digite sua senha"/>
+            
+          </div>
+
+          <button type="submit">Cadastrar-se</button>
+
+          <div class="create-account">
+            <p>Já possui uma conta? <a href="/login">Entrar</a></p>
+          </div>
+        </form>
+      </main>
+    </div>
+    <img src="../assets/images/banner.svg" alt="" />
+  </div>
+
+  <script src="../js/script.js"></script>
+</body>
+
+</html>

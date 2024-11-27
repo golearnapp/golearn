@@ -1,0 +1,34 @@
+
+
+/* Título da Playlist */
+main#mainContent h1 {
+    font-size: 2.5em;
+    color: #008f24;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* Estilos para o botão */
+.btn {
+    background-color: #008f24d3; /* Cor de fundo */
+    color: white; /* Cor do texto */
+    padding: 12px 20px; /* Espaçamento interno */
+    font-size: 16px; /* Tamanho da fonte */
+    border: none; /* Remover borda */
+    border-radius: 4px; /* Borda arredondada */
+    cursor: pointer; /* Cursor como mãozinha */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Efeitos de transição */
+}
+
+/* Efeito de hover (passar o mouse por cima) */
+.btn:hover {
+    background-color: #008f24 ; /* Cor de fundo ao passar o mouse */
+    transform: scale(1.05); /* Leve aumento no tamanho */
+}
+
+/* Efeito de foco (quando o botão está selecionado) */
+.btn:focus {
+    outline: none; /* Remove o contorno padrão */
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5); /* Adiciona um sombreado ao redor */
+}
+

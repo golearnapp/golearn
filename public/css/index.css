@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;700&display=swap');
+@import 'global.css';
+@import 'home.css';
+@import 'bokks.css';
+@import 'fullcalander.css';
+@import 'playlist.css';
+@import 'perfil.css';
+@import 'forms-uplod.css';
+@import 'arquivos.css';
+@import 'lista_arquivos.css';
+@import 'visualizar_playlist.css';
+
+
+
+:root {
+    --primary: #eeeeee;
+    --secondary:  #008f24;
+    --green: #03a52b;
+    --secondary-light: #e7e4e4;
+    --secondary-light-2: rgb(127, 183, 126, 0.1);
+    --white: #fff;
+    --black: #393e46;
+  
+    --shadow: 0px 2px 8px 0px var(--secondary-light);
+}
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body, html {
+    height: 100%;
+    background: var(--primary);
+        
+}

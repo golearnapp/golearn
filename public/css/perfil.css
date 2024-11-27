@@ -1,0 +1,110 @@
+
+.container-painel {
+    margin-left: 200px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
+}
+.form-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+.inputs {
+    width: 60%;
+}
+.inputs label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.inputs input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.image-section {
+    width: 35%;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+.image-section img {
+    width: 100px;
+    height: 100px;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+.image-section button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.image-section button:hover {
+    background-color: #0056b3;
+}
+.save-btn {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    align-self: center;
+}
+.save-btn:hover {
+    background-color: #218838;
+}
+
+.upload {
+    display: flex;
+    justify-content: center;    
+    flex-direction: column;
+}
+.upload input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+.upload button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 50%;
+    align-self: center;
+}
+.upload button:hover {
+    background-color: #0056b3;
+}
+
+.upload textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: none;
+}
+
+.upload label {
+    text-align: left;
+    font-weight: bold;
+    margin-bottom: 5px;
+    
+}
+
