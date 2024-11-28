@@ -112,10 +112,10 @@ if (!isset($_SESSION)) {
             </nav>
         </aside>
         <main id="mainContent">
-        
+        <a class="btn" href="/playlists">Voltar para Playlists</a>
         <h1><?= htmlspecialchars($this->view->playlist['titulo']) ?></h1>
-        <p><?= nl2br(htmlspecialchars($this->view->playlist['descricao'])) ?></p>
-        <a href="/playlists">Voltar para Minhas Playlists</a>
+        
+        
 
         <?php if (isset($_SESSION['mensagem'])): ?>
             <div class="alert">

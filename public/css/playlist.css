@@ -85,15 +85,15 @@ main p {
     box-shadow: 0 8px 16px #008f2477;
 }
 
-
-
 .card-content {
+    text-decoration: none;
     padding: 15px;
     justify-content: center;  /* Centraliza horizontalmente */
     align-items: center;    /* Centraliza verticalmente */
 }
 
 .card-title {
+    text-decoration: none;
     justify-content: center;  /* Centraliza horizontalmente */
         align-items: center;    /* Centraliza verticalmente */
     font-size: 1.2em;
@@ -103,6 +103,7 @@ main p {
 }
 
 .card-description {
+    text-decoration: none;
     justify-content: center;  /* Centraliza horizontalmente */
     align-items: center;    /* Centraliza verticalmente */
     font-size: 0.9em;

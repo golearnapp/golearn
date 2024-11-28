@@ -109,32 +109,35 @@ if (!isset($_SESSION)) {
             </nav>
         </aside>
         <main id="mainContent">       
-        <h1>Minhas Playlists</h1>
-        <a href="/apphome">Voltar para o Painel</a>
+        </a>
 
-        <?php if (isset($_SESSION['mensagem'])): ?>
-            <div class="alert">
-                <?= $_SESSION['mensagem']; ?>
-                <?php unset($_SESSION['mensagem']); ?>
-            </div>
-        <?php endif; ?>
+<h1 class="TiPlaylist">Minhas Playlists</h1>
 
-        <?php if (!empty($this->view->playlists)): ?>
-            <div class="playlist-cards">
-                <?php foreach ($this->view->playlists as $playlist): ?>
-                    <div class="card">
-                        <a href="/playlist/visualizar?id=<?= htmlspecialchars($playlist['id']) ?>">
-                            <div class="card-content">
-                                <h3 class="card-title"><?= htmlspecialchars($playlist['titulo']) ?></h3>
-                                <p class="card-description"><?= htmlspecialchars($playlist['descricao']) ?></p>
-                                <span class="card-footer">Ver Mais</span>
-                            </div>
-                        </a>
+<!-- Mensagens de Sessão -->
+<?php if (isset($_SESSION['mensagem'])): ?>
+    <div class="alert">
+        <?= $_SESSION['mensagem']; ?>
+        <?php unset($_SESSION['mensagem']); ?>
+    </div>
+<?php endif; ?>
+
+<!-- Exibição das Playlists -->
+<?php if (!empty($this->view->playlists)): ?>
+    <div class="playlist-cards">
+        <?php foreach ($this->view->playlists as $playlist): ?>
+            <div class="card">
+                <a href="/playlist/visualizar?id=<?= htmlspecialchars($playlist['id']) ?>">
+                    <div class="card-content">
+                        <h3 class="card-title"><?= htmlspecialchars($playlist['titulo']) ?></h3>
+                        <p class="card-description"><?= htmlspecialchars($playlist['descricao']) ?></p>
+                        <span class="card-footer">Ver Mais</span>
                     </div>
-                <?php endforeach; ?>
+                </a>
             </div>
-        <?php else: ?>
-            <p>Você ainda não criou nenhuma playlist.</p>
-        <?php endif; ?>
+        <?php endforeach; ?>
+    </div>
+<?php else: ?>
+    <p>Você ainda não criou nenhuma playlist.</p>
+<?php endif; ?>
         </main>
     </div>
