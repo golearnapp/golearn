@@ -6,7 +6,7 @@ use MF\Model\Model;
 
 class LivroOpenLibrary extends Model {
 
-    public function buscarPorTermo($termo) {
+    public function buscarPorTermo($termo, $limite = 10) {
         if (empty($termo)) {
             return []; // Sempre retorne um array
         }
@@ -32,7 +32,7 @@ class LivroOpenLibrary extends Model {
             }
         }
     
-        return $livros;
+        return array_slice($livros, 0, $limite);
     }
     
 }

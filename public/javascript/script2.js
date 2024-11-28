@@ -1,3 +1,37 @@
+function addHTML(item) {
+  const div = document.createElement("div");
+
+  div.innerHTML = `<div class="item" style="background-color: ${item.color}">
+    <span class="remove">X</span>
+    <textarea data-id="${item.id}">${item.text}</textarea>
+  </div>`;
+
+  content.appendChild(div);
+
+  div.querySelector("textarea").oninput = (e) => {
+    const text = e.target.value;
+    const id = e.target.dataset.id;
+
+    fetch("index.php?action=updateNote", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ id, text }),
+    });
+  };
+
+  div.querySelector(".remove").onclick = () => {
+    const id = div.querySelector("textarea").dataset.id;
+
+    fetch("index.php?action=deleteNote", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ id }),
+    }).then(loadItems);
+  };
+}
+
+loadItems();
+
 document.addEventListener('DOMContentLoaded', function()
 {
     var calendarEl = document.getElementById('calendar');

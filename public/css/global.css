@@ -15,7 +15,7 @@
     top: 0;
     width: 100%;
     z-index: 1000;
-    height: 60px;
+    height: 70px;
    
   }
   
@@ -185,7 +185,7 @@
     
     background-color: var(--secondary-light);
     color: var(--white);   
-    width: 60px;  /* Largura inicial da sidebar */
+    width: 70px;  /* Largura inicial da sidebar */
     height: calc(100% - 60px); /* Preenche toda a altura abaixo do header */
     position: fixed;
     top: 60px; /* Sidebar começa logo abaixo do cabeçalho */

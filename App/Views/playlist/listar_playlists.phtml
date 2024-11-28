@@ -1,4 +1,9 @@
-
+<?php
+if (!isset($_SESSION)) {
+    
+    session_start();
+}
+?>
 <div class="container">
         <header>
             <button class="menu-button" id="menuButton" onclick="toggleSidebar()">
@@ -103,13 +108,7 @@
                 </ul>
             </nav>
         </aside>
-        <main id="mainContent">
-        <form action="/buscar" method="get" class="pesquisa">
-                <input type="text" placeholder="Pesquisar Livros">
-                <button type="submit" class="serarch-button">
-                    <i class="fa-solid fa-search"></i>
-                </button>
-            </form>
+        <main id="mainContent">       
         <h1>Minhas Playlists</h1>
         <a href="/apphome">Voltar para o Painel</a>
 
@@ -121,17 +120,19 @@
         <?php endif; ?>
 
         <?php if (!empty($this->view->playlists)): ?>
-            <div>
+            <div class="playlist-cards">
                 <?php foreach ($this->view->playlists as $playlist): ?>
-                    
+                    <div class="card">
                         <a href="/playlist/visualizar?id=<?= htmlspecialchars($playlist['id']) ?>">
-                            <?= htmlspecialchars($playlist['titulo']) ?>
+                            <div class="card-content">
+                                <h3 class="card-title"><?= htmlspecialchars($playlist['titulo']) ?></h3>
+                                <p class="card-description"><?= htmlspecialchars($playlist['descricao']) ?></p>
+                                <span class="card-footer">Ver Mais</span>
+                            </div>
                         </a>
-            </div>
-                
-                    
+                    </div>
                 <?php endforeach; ?>
-           
+            </div>
         <?php else: ?>
             <p>Você ainda não criou nenhuma playlist.</p>
         <?php endif; ?>

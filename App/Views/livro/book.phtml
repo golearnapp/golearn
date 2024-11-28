@@ -4,8 +4,8 @@ if (!isset($_SESSION)) {
     session_start();
 }
 
-
-$resultados = $this->view->resultados;
+$limite = 10; // Define o número máximo de livros a exibir
+$contador = 0;
 
 ?>
 <div class="container">
@@ -114,11 +114,13 @@ $resultados = $this->view->resultados;
         </aside>
         <main id="mainContent">
         <div class="container">
-    <h1>Resultados da Busca</h1>
-    <form method="get" action="/buscar">
+        <h2 class="titulo">Pesquisar Livro</h2>
+    <form action="/buscar" method="get" class="pesquisa">
         <input type="text" name="termo" placeholder="Digite o nome do livro" value="<?= $_GET['termo'] ?? '' ?>">
-        <button type="submit">Buscar</button>
-    </form>
+        <button type="submit" class="serarch-button">
+            <i class="fa-solid fa-search"></i>
+        </button>
+    </form>   
 
    
         <div class="livros">

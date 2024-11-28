@@ -39,7 +39,9 @@ class Playlist extends Model
     // Método para listar todas as playlists de um usuário
     public function listarPlaylists($id_usuario)
     {
-        $query = "SELECT * FROM playlists WHERE id_usuario = :id_usuario ORDER BY criado_em DESC";
+        $query = "SELECT * 
+        FROM playlists 
+        WHERE id_usuario = :id_usuario OR visibilidade = 'publica'";
         $stmt = $this->db->prepare($query);
         $stmt->bindValue(':id_usuario', $id_usuario);
         $stmt->execute();

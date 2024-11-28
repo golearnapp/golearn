@@ -1,4 +1,9 @@
-
+<?php
+if (!isset($_SESSION)) {
+    
+    session_start();
+}
+?>
 <div class="container">
         <header>
             <button class="menu-button" id="menuButton" onclick="toggleSidebar()">
@@ -104,12 +109,10 @@
             </nav>
         </aside>
         <main id="mainContent">
-            <div class="main-arquivo">
+        <div class="main-arquivo">
                 <h1>Arquivos para Estudos</h1>
-                <p>Encontre aqui os arquivos que você precisa para estudar.</p>
-               
                 
-                <table class="tabla-arquivo">
+                <table class="table-arquivo">
                     <thead >
                         <tr>
                             <th>Nome</th>
@@ -144,6 +147,7 @@
                 
             </div>
             
+
 
         </main>
     </div>

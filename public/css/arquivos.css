@@ -1,56 +1,148 @@
-
-
-/* Conteúdo Principal */
+/* Conteúdo principal */
 main {
-    flex: 1;
+    flex-grow: 1;
     padding: 20px;
 }
 
-main h1 {
-    margin-bottom: 20px;
-    font-size: 24px;
-    text-align: center;
-    color: #007bff;
-}
-
-main a {
-    display: inline-block;
-    margin-bottom: 20px;
-    text-decoration: none;
-    color: #007bff;
-    font-weight: bold;
-}
-
-.alert {
-    background-color: #ffefc2;
-    border: 1px solid #ffeeba;
-    color: #856404;
-    padding: 10px;
-    margin-bottom: 20px;
-    border-radius: 5px;
-    text-align: center;
-}
-
-/* Listagem de Playlists */
-main div {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 15px;
-}
-
-main div a {
-    
-    padding: 15px;
-    text-align: center;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+.main-arquivo h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
     color: #333;
+}
+
+.main-arquivo p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* Tabela de arquivos */
+.table-arquivo {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.table-arquivo th, .table-arquivo td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.table-arquivo th {
+    background-color: var(--secondary);
+    color: white;
+}
+
+.table-arquivo tr:hover {
+    background-color: #f5f5f5;
+}
+
+.table-arquivo a {
     text-decoration: none;
-    transition: transform 0.2s, box-shadow 0.2s;
+    color: #2c3e50;
+    background-color: #ecf0f1;
+    padding: 8px 15px;
+    border-radius: 5px;
+    display: inline-block;
 }
 
-main div a:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+.table-arquivo a:hover {
+    background-color: #bdc3c7;
 }
 
+/* Estilo para o botão mais elaborado */
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #3498db;  /* Cor de fundo azul */
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    border: 2px solid transparent;
+    border-radius: 30px;  /* Bordas arredondadas */
+    cursor: pointer;
+    transition: all 0.3s ease;  /* Transição suave para todos os estados */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);  /* Sombra leve */
+}
+
+.btn:hover {
+    background-color: #2980b9;  /* Cor mais escura ao passar o mouse */
+    transform: translateY(-3px);  /* Levanta o botão */
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);  /* Aumenta a sombra */
+}
+
+.btn:active {
+    background-color: #1c6ca0;  /* Cor ainda mais escura quando pressionado */
+    transform: translateY(1px);  /* Botão parece pressionado */
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);  /* Sombra mais suave */
+}
+
+/* Estilo para o botão de download com ícones */
+.btn-download {
+    display: inline-flex;
+    align-items: center;
+    padding: 12px 24px;
+    background-color: #27ae60;  /* Cor verde */
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    border: 2px solid transparent;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-download:hover {
+    background-color: #2ecc71;  /* Cor mais clara ao passar o mouse */
+    transform: translateY(-3px);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.btn-download:active {
+    background-color: #1e8449;  /* Cor mais escura quando pressionado */
+    transform: translateY(1px);
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-download i {
+    margin-right: 8px;  /* Espaço entre o ícone e o texto */
+    font-size: 18px;
+}
+
+
+/* Responsividade */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    header .menu-button {
+        display: block;
+    }
+
+    aside.sidebar {
+        width: 200px;
+    }
+
+    .container {
+        flex-direction: column;
+    }
+
+    .main-arquivo h1 {
+        font-size: 24px;
+    }
+
+    .table-arquivo th, .table-arquivo td {
+        font-size: 14px;
+    }
+}

@@ -1,3 +1,9 @@
+<?php
+if (!isset($_SESSION)) {
+    
+    session_start();
+}
+?>
 <div class="container">
         <header>
             <button class="menu-button" id="menuButton" onclick="toggleSidebar()">

@@ -1,4 +1,9 @@
-
+<?php
+if (!isset($_SESSION)) {
+    
+    session_start();
+}
+?>
     <div class="container">
         <header>
             <button class="menu-button" id="menuButton" onclick="toggleSidebar()">
@@ -103,13 +108,7 @@
                 </ul>
             </nav>
         </aside>
-        <main id="mainContent">
-            <form action="/buscar" method="get" class="pesquisa">
-                <input type="text" placeholder="Pesquisar Livros">
-                <button type="submit" class="serarch-button">
-                    <i class="fa-solid fa-search"></i>
-                </button>
-            </form>
+        <main id="mainContent">          
 
             <a href="/apphome">Voltar para o Painel</a>
         <h1>Minhas Playlists</h1>
@@ -132,8 +131,7 @@
                     </li>
                 <?php endforeach; ?>
             </ul>
-        <?php else: ?>
-            <p>Você ainda não criou nenhuma playlist.</p>
         <?php endif; ?>
+       
         </main>
     </div>

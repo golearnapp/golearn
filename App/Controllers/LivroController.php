@@ -21,10 +21,11 @@ class LivroController extends Action {
 
     public function buscar() {
         $termo = $_GET['termo'] ?? '';
+        $limite = 10; // Define o limite de livros
 
         // Instanciar o Model e buscar dados
         $livroModel = Container::getModel('LivroOpenLibrary');
-        $resultado = $livroModel->buscarPorTermo($termo);
+        $resultado = $livroModel->buscarPorTermo($termo, $limite);
 
         // Passar os dados para a View
         if(count($resultado) > 0) {

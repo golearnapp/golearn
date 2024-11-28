@@ -1,3 +1,9 @@
+<?php
+if (!isset($_SESSION)) {
+    
+    session_start();
+}
+?>
 <head>
     <title><?= htmlspecialchars($this->view->playlist['titulo']) ?></title>
 </head>
