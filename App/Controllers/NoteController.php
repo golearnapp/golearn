@@ -20,33 +20,34 @@ class NoteController extends Action{
 		}
 	}
     public function getNotes() {
-        $userId = Session::get('user_id');
-        echo json_encode($this->model->getAllNotesByUser($userId));
+        $userId = Session::get('id_usuario');
+        echo json_encode($this-view->getAllNotesByUser($id_usuario));
+       
     }
 
     public function saveNote() {
-        $userId = Session::get('user_id');
+        $userId = Session::get('id_usuario');
         $data = json_decode(file_get_contents("php://input"), true);
         $text = $data['text'] ?? '';
         $color = $data['color'] ?? '#FFFFFF';
 
-        $this->model->addNote($text, $color, $userId);
+        $this->model->addNote($text, $color, $id_usuario);
     }
 
     public function updateNote() {
-        $userId = Session::get('user_id');
+        $userId = Session::get('id_usuario');
         $data = json_decode(file_get_contents("php://input"), true);
         $id = $data['id'];
         $text = $data['text'];
 
-        $this->model->updateNote($id, $text, $userId);
+        $this->model->updateNote($id, $text, $id_usuario);
     }
 
     public function deleteNote() {
-        $userId = Session::get('user_id');
+        $userId = Session::get('id_usuario');
         $data = json_decode(file_get_contents("php://input"), true);
         $id = $data['id'];
 
-        $this->model->deleteNote($id, $userId);
+        $this->model->deleteNote($id, $id_usuario);
     }
 }

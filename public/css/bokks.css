@@ -23,10 +23,7 @@
     margin-right: 10px;
 }
 
-.table{
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
-    border: 1px solid var(--black);
-    border-radius: 50px;
+
+.livros{
+width: 20%;
 }

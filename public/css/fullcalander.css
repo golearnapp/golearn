@@ -48,6 +48,9 @@ body
     gap: 10px;
     flex-direction: row;
 }
+.fc-scroller{
+    background-color: transparent;
+}
 
 
 
